@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:cos": "npm run build && npm run deploy:cos",
+    "deploy:cos": "node scripts/deploy-cos.js",
     "lint": "eslint .",
     "test": "vitest run",
     "preview": "vite preview",
@@ -44,6 +46,7 @@
     "vite": "^6.3.5",
     "vite-plugin-trae-solo-badge": "^1.0.0",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "cos-nodejs-sdk-v5": "^2.6.16"
   }
 }

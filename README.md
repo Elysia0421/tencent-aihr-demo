@@ -96,6 +96,31 @@ npm run build
 npm run preview
 ```
 
+### 国内访问与部署
+
+如果你希望国内访问更稳定，推荐使用以下两种方式：
+
+1. Vercel + 国内域名 + Cloudflare DNS 代理
+   - 在腾讯云购买一个域名
+   - 将域名 DNS 托管切换到 Cloudflare
+   - 在 Cloudflare 中添加 CNAME 记录，指向你的 Vercel 应用域名，例如 `tencent-aihr-demo.vercel.app`
+   - 在 Cloudflare 的 SSL/TLS 设置中启用 `完全` 或 `完全（严格）`
+   - 在 Vercel 项目中添加你的自定义域名并完成校验
+   - 这样访问 `https://你的域名` 时，国内流量会通过 Cloudflare 代理到 Vercel，访问更稳定
+
+2. 直接部署到腾讯云 COS 静态站点（推荐国内访问）
+   - 运行 `npm run build`
+   - 使用本仓库新增的部署脚本：`npm run deploy:cos`
+   - 需要在环境变量中配置：
+     - `TENCENT_SECRET_ID`
+     - `TENCENT_SECRET_KEY`
+     - `TENCENT_COS_BUCKET`
+     - `TENCENT_COS_REGION`
+     - 可选：`TENCENT_COS_PREFIX`
+   - 这个脚本会把 `dist/` 内容上传到 COS，并可配合腾讯云 CDN 进行加速
+
+更多部署说明请参考项目根目录的 `scripts/deploy-cos.js`。
+
 ## 项目说明
 
 * 本项目为课题 Demo，页面中的实习生数据均为模拟数据；

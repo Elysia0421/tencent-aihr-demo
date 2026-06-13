@@ -6,7 +6,7 @@
 
 ## 在线体验
 
-* Demo 地址：[填写 Demo 地址]
+* Demo 地址：https://tencent-aihr-demo.vercel.app/
 * 源码地址：本仓库
 * 体验方式：进入登录页后直接选择预设身份，无需注册或输入密码
 

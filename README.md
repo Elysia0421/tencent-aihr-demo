@@ -46,27 +46,6 @@
 * 识别高潜和风险实习生
 * 获取 AI 群体分析与管理建议
 
-## 产品截图
-
-### 登录与角色选择
-
-![登录页](docs/images/login.png)
-
-### 实习生成长导航
-
-![实习生端](docs/images/intern-dashboard.png)
-
-### 导师带教工作台
-
-![导师端](docs/images/mentor-dashboard.png)
-
-### HR 适岗分析看板
-
-![HR端](docs/images/hr-dashboard.png)
-
-### AI Copilot
-
-![AI中心](docs/images/ai-center.png)
 
 ## AI 设计
 

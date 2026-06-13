@@ -1,57 +1,129 @@
-# React + TypeScript + Vite
+# 实习能量站
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> AI 驱动的业务部实习生成长导航智能看板
 
-Currently, two official plugins are available:
+「实习能量站」面向实习生、业务导师和 HR / 招聘同学，通过成长任务、周报分析、导师反馈、风险预警和适岗分析，构建三方协同的实习培养闭环。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 在线体验
 
-## Expanding the ESLint configuration
+* Demo 地址：[填写 Demo 地址]
+* 源码地址：本仓库
+* 体验方式：进入登录页后直接选择预设身份，无需注册或输入密码
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 项目背景
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+某业务部门迎来 20 名校招实习生，覆盖研发、产品和销售岗位。传统实习培养主要存在三个问题：
+
+1. 导师依靠个人经验带教，节奏与反馈标准不统一；
+2. 实习生不清楚当前阶段应该学习什么、完成什么；
+3. HR 和招聘同学难以及时掌握整体适岗情况。
+
+本项目希望通过 AI 与数据看板，让实习培养从经验驱动转向数据与 AI 驱动。
+
+## 核心角色
+
+### 实习生端
+
+* 查看当前成长阶段
+* 查看本周学习、业务和协作任务
+* 填写并生成结构化周报
+* 查看能力表现与 AI 成长建议
+* 使用成长 Copilot
+
+### 导师端
+
+* 查看所带实习生状态
+* 查看任务完成率和风险等级
+* 获取本周带教提醒
+* 生成结构化导师反馈
+* 获取针对性的带教建议
+
+### HR / 招聘端
+
+* 查看 20 名实习生整体概览
+* 查看岗位分布与任务完成情况
+* 查看适岗指数排行榜
+* 识别高潜和风险实习生
+* 获取 AI 群体分析与管理建议
+
+## 产品截图
+
+### 登录与角色选择
+
+![登录页](docs/images/login.png)
+
+### 实习生成长导航
+
+![实习生端](docs/images/intern-dashboard.png)
+
+### 导师带教工作台
+
+![导师端](docs/images/mentor-dashboard.png)
+
+### HR 适岗分析看板
+
+![HR端](docs/images/hr-dashboard.png)
+
+### AI Copilot
+
+![AI中心](docs/images/ai-center.png)
+
+## AI 设计
+
+当前 Demo 采用“可解释规则引擎 + Prompt 原型生成”的实现方式：
+
+* 根据任务完成率、周报文本和导师反馈识别风险；
+* 根据岗位、成长阶段和能力表现生成成长建议；
+* 根据实习生表现生成导师反馈初稿；
+* 根据团队数据生成 HR 群体分析。
+
+正式落地后，可进一步接入企业内部大语言模型、岗位能力知识库、任务系统和 HR 系统。
+
+## 关键指标
+
+适岗指数由以下维度组成：
+
+* 任务完成度：30%
+* 导师评价：25%
+* 能力成长速度：20%
+* 主动学习表现：15%
+* 沟通协作反馈：10%
+
+风险等级分为低风险、中风险和高风险，并给出对应的导师或 HR 介入建议。
+
+## 技术栈
+
+* React
+* TypeScript
+* Vite
+* React Router
+* Zustand
+* Recharts
+* Tailwind CSS
+
+## 本地运行
+
+```bash
+git clone https://github.com/Elysia0421/tencent-aihr-demo.git
+cd tencent-aihr-demo
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+生产构建：
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm run build
+npm run preview
 ```
+
+## 项目说明
+
+* 本项目为课题 Demo，页面中的实习生数据均为模拟数据；
+* 当前版本未接入企业真实员工信息；
+* 当前 AI 输出主要用于展示产品流程和交互逻辑；
+* 正式业务落地时需增加权限、隐私保护、人工复核和数据安全机制。
+
+## 对应课题
+
+作业四：「实习能量站」业务部新人成长导航智能看板
